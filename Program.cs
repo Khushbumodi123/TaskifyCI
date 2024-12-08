@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ToDoAPI.AppDataContext;
 using ToDoAPI.Models;
+using ToDoAPI.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,11 +18,16 @@ builder.Services.AddDbContext<TodoDbContext>((serviceProvider, options) =>
     options.UseMySql(dbSettings.ConnectionString, ServerVersion.AutoDetect(dbSettings.ConnectionString));
 });
 
+// Register services
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Swagger setup
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); 
+builder.Services.AddProblemDetails();  
+builder.Services.AddLogging();  
 
 var app = builder.Build();
 
