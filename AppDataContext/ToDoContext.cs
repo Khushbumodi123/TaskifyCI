@@ -26,8 +26,11 @@ namespace ToDoAPI.AppDataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Todo>()
-                .ToTable("TodoAPI")
+                .ToTable("Todos")
                 .HasKey(x => x.Id);
         }
+
+         // Add DbSet property for the Todo entity
+        public DbSet<Todo> Todos { get; set; }
     }
 }

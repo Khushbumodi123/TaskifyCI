@@ -3,6 +3,8 @@ using Microsoft.Extensions.Options;
 using ToDoAPI.AppDataContext;
 using ToDoAPI.Models;
 using ToDoAPI.Middleware;
+using ToDoAPI.Services;
+using ToDoAPI.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +30,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); 
 builder.Services.AddProblemDetails();  
 builder.Services.AddLogging();  
+builder.Services.AddScoped<IToDoServices, ToDoServices>();
 
 var app = builder.Build();
 
