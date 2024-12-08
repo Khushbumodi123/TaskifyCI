@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Register DbSettings and configure TodoDbContext
-builder.Services.Configure<ToDoAPI.Models.DbSettings>(builder.Configuration.GetSection("DbSettings"));
+builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
 builder.Services.AddDbContext<TodoDbContext>((serviceProvider, options) =>
 {
     var dbSettings = serviceProvider.GetRequiredService<IOptions<DbSettings>>().Value;
