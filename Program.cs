@@ -20,16 +20,26 @@ builder.Services.AddDbContext<TodoDbContext>((serviceProvider, options) =>
     options.UseMySql(dbSettings.ConnectionString, ServerVersion.AutoDetect(dbSettings.ConnectionString));
 });
 
-// Register services
+// Add services to the container.
+builder.Services.AddControllers();
+
+// Register AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Swagger setup
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); 
-builder.Services.AddProblemDetails();  
-builder.Services.AddLogging();  
+// Register exception handler
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+// Add ProblemDetails middleware
+builder.Services.AddProblemDetails();
+
+// Add logging
+builder.Services.AddLogging();
+
+// Register custom services
 builder.Services.AddScoped<IToDoServices, ToDoServices>();
 
 var app = builder.Build();
@@ -41,10 +51,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Uncomment HTTPS redirection for production
+// app.UseHttpsRedirection();
+
+// Use custom exception handler
+app.UseExceptionHandler("/error");
+
+// Use routing
+app.UseRouting();
 
 app.UseAuthorization();
 
+// Map controllers
 app.MapControllers();
 
+// Run the application
 app.Run();

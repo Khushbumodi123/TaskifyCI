@@ -7,21 +7,18 @@ namespace ToDoAPI.AppDataContext
 {
 
     // TodoDbContext class inherits from DbContext
-    public class TodoDbContext : DbContext
+    public class TodoDbContext(IOptions<DbSettings> dbSettings) : DbContext
     {
 
         // DbSettings field to store the connection string
-        private readonly ToDoAPI.Models.DbSettings _dbSettings;
-
-        public TodoDbContext(IOptions<ToDoAPI.Models.DbSettings> dbSettings)
-        {
-            _dbSettings = dbSettings.Value;
-        }
+        private readonly DbSettings _dbSettings = dbSettings.Value;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(_dbSettings.ConnectionString, ServerVersion.AutoDetect(_dbSettings.ConnectionString));
         }
+
+
         // Configuring the model for the Todo entity
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +28,6 @@ namespace ToDoAPI.AppDataContext
         }
 
          // Add DbSet property for the Todo entity
-        public DbSet<Todo> Todos { get; set; }
+        public required DbSet<Todo> Todos { get; set; }
     }
 }

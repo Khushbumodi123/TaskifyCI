@@ -23,7 +23,8 @@ namespace ToDoAPI.Middleware
 
             var errorResponse = new ErrorResponse
             {
-                Message = exception.Message
+                Message = exception.Message,
+                Title = exception.GetType().Name
             };
 
             switch (exception)
