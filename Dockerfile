@@ -8,7 +8,7 @@ COPY . .
 
 RUN dotnet restore "./ToDoAPI.csproj"
 RUN dotnet build "./ToDoAPI.csproj" -c Release -o /app/build
-RUN dotnet publish "./ToDoAPI.csproj" -c Release -o /app/publish --no-restore
+RUN dotnet publish "./ToDoAPI" -c Release -o /app/publish --no-restore
 
 # SERVE STAGE
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
