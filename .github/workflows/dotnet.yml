@@ -14,15 +14,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install ICU dependencies
+      run: sudo apt-get update && sudo apt-get install -y icu-devtools
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
+
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --configuration Release
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      
     - name: Publish
       run: dotnet publish --no-restore --configuration Release --output ./publish
