@@ -28,7 +28,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
+      - name: Build .Net Core
         run: dotnet build --configuration Release --no-restore
 
       - name: Build and Push the Docker image
@@ -37,6 +37,6 @@ jobs:
           image: khushbumodi/todoapp
           tags: v1, latest
           registry: docker.io
-          dockerfile: Dockerfile.ci
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
