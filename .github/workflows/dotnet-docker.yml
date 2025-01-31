@@ -31,12 +31,21 @@ jobs:
       - name: Build .Net Core
         run: dotnet build --configuration Release --no-restore
 
-      - name: Build and Push the Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: khushbumodi/todoapp
-          tags: v1, latest
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      # - name: Build and Push the Docker image
+      #   uses: mr-smithers-excellent/docker-build-push@v6
+      #   with:
+      #     image: khushbumodi/todoapp
+      #     tags: v1, latest
+      #     registry: docker.io
+      #     dockerfile: Dockerfile
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t khushbumodi/todoapp:latest -f Dockerfile .
+
+      - name: Push Docker Image
+        run: docker push khushbumodi/todoapp:latest
