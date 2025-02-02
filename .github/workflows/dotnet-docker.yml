@@ -29,10 +29,10 @@ jobs:
         run: cd ToDoAPI/
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: cd ToDoAPI/ && dotnet restore
 
       - name: Build .Net Core
-        run: dotnet build --configuration Release --no-restore
+        run: cd ToDoAPI/ && dotnet build --configuration Release --no-restore
 
       # - name: Build and Push the Docker image
       #   uses: mr-smithers-excellent/docker-build-push@v6
