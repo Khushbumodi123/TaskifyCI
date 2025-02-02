@@ -1,0 +1,6 @@
+D:\Projects\.NET\ToDoAPI.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_ToDoAPI.Tests
+D:\Projects\.NET\ToDoAPI.Tests\obj\Debug\net8.0\ToDoAPI.Tests.csproj.AssemblyReference.cache
+D:\Projects\.NET\ToDoAPI.Tests\obj\Debug\net8.0\ToDoAPI.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\.NET\ToDoAPI.Tests\obj\Debug\net8.0\ToDoAPI.Tests.AssemblyInfoInputs.cache
+D:\Projects\.NET\ToDoAPI.Tests\obj\Debug\net8.0\ToDoAPI.Tests.AssemblyInfo.cs
+D:\Projects\.NET\ToDoAPI.Tests\obj\Debug\net8.0\ToDoAPI.Tests.csproj.CoreCompileInputs.cache
