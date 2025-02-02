@@ -28,6 +28,6 @@ namespace ToDoAPI.AppDataContext
         }
 
          // Add DbSet property for the Todo entity
-        public required DbSet<Todo> Todos { get; set; }
+        public DbSet<Todo> Todos { get; set; }
     }
 }
