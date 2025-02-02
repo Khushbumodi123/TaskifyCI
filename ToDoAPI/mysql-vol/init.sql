@@ -1,0 +1,10 @@
+CREATE TABLE Todos (
+    Id CHAR(36) NOT NULL PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    Description TEXT NOT NULL,
+    IsComplete BOOLEAN NOT NULL,
+    DueDate DATETIME NOT NULL,
+    Priority INT NOT NULL,
+    CreatedAt DATETIME NOT NULL,
+    UpdatedAt DATETIME NOT NULL
+);

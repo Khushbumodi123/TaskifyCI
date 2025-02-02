@@ -1,0 +1,6 @@
+@ToDoAPI_HostAddress = http://localhost:5096
+
+GET {{ToDoAPI_HostAddress}}
+Accept: application/json
+
+###
