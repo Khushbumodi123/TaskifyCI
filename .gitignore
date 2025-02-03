@@ -1,0 +1,134 @@
+### General ###
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+*.lnk
+
+# Ignore editor-specific files
+*.swp
+*.*~
+*.sublime-workspace
+*.sublime-project
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build and output directories
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+/ToDoAPI.Tests/bin/
+/ToDoAPI.Tests/obj/
+
+# Ignore NuGet packages directory
+.nuget/
+packages/
+*.nupkg
+
+# Ignore test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+
+# Ignore logs and diagnostics
+logs/
+*.log
+*.nlog
+
+# Ignore local app settings
+appsettings.Development.json
+appsettingsTEST.json
+
+# Ignore coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# Ignore compiled files
+*.dll
+*.pdb
+*.exe
+*.cache
+*.runtimeconfig.json
+*.deps.json
+
+### IDE Specific ###
+# Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Fleet
+.fleet/
+
+# Code Rush
+.cr/
+
+### Database ###
+# Ignore SQL Server files
+App_Data/*.mdf
+App_Data/*.ldf
+
+### Migrations ###
+# Ignore Entity Framework migrations (if applicable)
+/Migrations/
+
+### Other ###
+# Ignore ReSharper files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Ignore Click-Once and publish output
+publish/
+*.Publish.xml
+*.pubxml
+*.azurePubxml
+
+# Ignore Azure build output
+csx/
+*.build.csdef
+
+# Ignore Windows Store app package directory
+AppPackages/
+
+# Ignore backup files
+*.bak
+*.tmp
+*.temp
+
+# Ignore Python files (if not needed)
+*.pyc
+
+# Ignore CMake files (if not needed)
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+
+# Ignore MySQL-specific files (if not needed)
+*.ibd
+*.frm
+*.MYD
+*.MYI
+*.ib_logfile*
+ibdata1
+
+# Ignore Entity Framework migrations
+/Migrations/
